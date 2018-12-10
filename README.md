@@ -7,7 +7,7 @@ Go create a mongoDB Atlas account:
 Follow the steps to setup your cluster, then download mongoDB Compass:
  - https://downloads.mongodb.com/compass/mongodb-compass-community-1.16.3-win32-x64.exe
 
-Once that mongoDB Compass is installed:
+Once mongoDB Compass is installed:
 - Create a database
 - Click the new database and create a collection
 - In the menu (upper left)
