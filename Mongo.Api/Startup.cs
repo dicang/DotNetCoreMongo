@@ -21,8 +21,6 @@ namespace Mongo.Api
 
 		public void ConfigureServices(IServiceCollection services)
 		{
-			//https://www.matheus.ro/2018/03/05/getting-started-mongodb-using-asp-net-core-2-web-api/
-			// settings
 			services.Configure<DbSettings>(
 				options =>
 				{
@@ -39,8 +37,11 @@ namespace Mongo.Api
 
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
-			var cb = new ConfigurationBuilder().SetBasePath(env.ContentRootPath).AddJsonFile("appsettings.json")
+			var cb = new ConfigurationBuilder()
+				.SetBasePath(env.ContentRootPath)
+				.AddJsonFile("appsettings.json")
 				.AddEnvironmentVariables();
+
 			if (env.IsDevelopment())
 			{
 				cb.AddUserSecrets<Startup>();
