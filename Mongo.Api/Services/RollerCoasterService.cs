@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Mongo.Api.Models;
 using Mongo.Api.Repositories;
+using MongoDB.Bson;
 
 namespace Mongo.Api.Services
 {
-	public class RollerService : IRollerService
+	public class RollerCoasterService : IRollerCoasterService
 	{
-		private readonly IRollerRepository _repo;
+		private readonly IRollerCoasterRepository _repo;
 
-		public RollerService(IRollerRepository repo)
+		public RollerCoasterService()
+		{
+		}
+
+		public RollerCoasterService(IRollerCoasterRepository repo)
 		{
 			_repo = repo;
 		}
@@ -18,6 +23,21 @@ namespace Mongo.Api.Services
 		public Task<IEnumerable<RollerCoaster>> GetAll()
 		{
 			return _repo.GetAll();
+		}
+
+		public Task<RollerCoaster> Get(ObjectId id)
+		{
+			return _repo.Get(id);
+		}
+
+		public Task<RollerCoaster> Update(RollerCoaster role)
+		{
+			return _repo.Update(role);
+		}
+
+		public Task<RollerCoaster> Add(RollerCoaster role)
+		{
+			return _repo.Add(role);
 		}
 
 		public Task<RollerCoaster> GetRollerCoaster(string name)

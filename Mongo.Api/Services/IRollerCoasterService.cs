@@ -2,11 +2,10 @@
 using System.Threading.Tasks;
 using Mongo.Api.Models;
 
-namespace Mongo.Api.Repositories
+namespace Mongo.Api.Services
 {
-	public interface IRollerRepository 
+	public interface IRollerCoasterService : ICrudService<RollerCoaster>
 	{
-		Task<IEnumerable<RollerCoaster>> GetAll();
 		Task<RollerCoaster> GetRollerCoaster(string name);
 	}
 }

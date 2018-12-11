@@ -5,14 +5,14 @@ EXPOSE 443
 
 FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
-COPY ["Mongo.Api/Mongo.Api.csproj", "Mongo.Api/"]
-RUN dotnet restore "Mongo.Api/Mongo.Api.csproj"
+COPY Mongo.Api/Mongo.Api.csproj Mongo.Api/
+RUN dotnet restore Mongo.Api/Mongo.Api.csproj
 COPY . .
-WORKDIR "/src/Mongo.Api"
-RUN dotnet build "Mongo.Api.csproj" -c Release -o /app
+WORKDIR /src/Mongo.Api
+RUN dotnet build Mongo.Api.csproj -c Release -o /app
 
 FROM build AS publish
-RUN dotnet publish "Mongo.Api.csproj" -c Release -o /app
+RUN dotnet publish Mongo.Api.csproj -c Release -o /app
 
 FROM base AS final
 WORKDIR /app

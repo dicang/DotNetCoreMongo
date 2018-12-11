@@ -9,11 +9,11 @@ namespace Mongo.Api.Controllers
 	[ApiController]
 	public class RollerCoasterController : ControllerBase
 	{
-		private readonly IRollerService _service;
+		private readonly IRollerCoasterService coasterService;
 
-		public RollerCoasterController(IRollerService service)
+		public RollerCoasterController(IRollerCoasterService coasterService)
 		{
-			_service = service;
+			this.coasterService = coasterService;
 		}
 
 		[HttpGet]
@@ -21,7 +21,7 @@ namespace Mongo.Api.Controllers
 		{
 			try
 			{
-				var list = await _service.GetAll();
+				var list = await coasterService.GetAll();
 				return new OkObjectResult(list);
 			}
 			catch (Exception e)
@@ -35,7 +35,7 @@ namespace Mongo.Api.Controllers
 		{
 			try
 			{
-				var model = await _service.GetRollerCoaster(name);
+				var model = await coasterService.GetRollerCoaster(name);
 				return new OkObjectResult(model);
 			}
 			catch (Exception e)

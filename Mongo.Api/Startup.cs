@@ -28,8 +28,8 @@ namespace Mongo.Api
 					options.Database = Configuration.GetSection("Db:Database").Value;
 				});
 
-			services.AddTransient<IRollerRepository, RollerRepository>();
-			services.AddTransient<IRollerService, RollerService>();
+			services.AddTransient<IRollerCoasterRepository, RollerCoasterRepository>();
+			services.AddTransient<IRollerCoasterService, RollerCoasterService>();
 			services.AddTransient<IRollerContext, RollerContext>();
 
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

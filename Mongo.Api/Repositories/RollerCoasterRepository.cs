@@ -2,15 +2,16 @@
 using System.Threading.Tasks;
 using Mongo.Api.Models;
 using Mongo.Api.Repositories.Context;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace Mongo.Api.Repositories
 {
-	public class RollerRepository : IRollerRepository
+	public class RollerCoasterRepository : IRollerCoasterRepository
 	{
 		private readonly IRollerContext _context;
 
-		public RollerRepository(IRollerContext context)
+		public RollerCoasterRepository(IRollerContext context)
 		{
 			_context = context;
 		}
@@ -21,6 +22,21 @@ namespace Mongo.Api.Repositories
 				.RollerCoasters
 				.Find(_ => true)
 				.ToListAsync();
+		}
+
+		public Task<RollerCoaster> Get(ObjectId id)
+		{
+			return null;
+		}
+
+		public Task<RollerCoaster> Update(RollerCoaster role)
+		{
+			return null;
+		}
+
+		public Task<RollerCoaster> Add(RollerCoaster role)
+		{
+			return null;
 		}
 
 
